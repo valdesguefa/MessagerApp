@@ -1,34 +1,39 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MenuListItemComponent } from './features/ui/menu-list-item/menu-list-item.component';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-
-import { MatSort, MatSortModule, MatSortHeader } from '@angular/material/sort'
-import { MatTableModule } from '@angular/material/table'
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatChipsModule } from '@angular/material/chips';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {MaterialExampleModule} from '../../material.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
-import {HttpClientModule} from '@angular/common/http';
-import { ContactListModule } from './contact-list/contact-list.module';
-import { ContactsComponent } from './contact-list/contacts/contacts.component';
-//import { DataTablesModule } from "angular-datatables";
+import { FeaturesComponent } from './features/features.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent,
-  ],
+        AppComponent,
+        MenuListItemComponent,
+        FeaturesComponent,
+   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ContactListModule,
+      BrowserModule,
+      FlexLayoutModule,
+      HttpClientModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      MatToolbarModule,
+      MatSidenavModule,
+      MatListModule,
+      MatIconModule,
+      MatButtonModule,
+     ],
+  providers: [
+   // {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

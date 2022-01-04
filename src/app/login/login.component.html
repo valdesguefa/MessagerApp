@@ -1,0 +1,103 @@
+<div fxFlex fxLayout="column" fxLayoutGap="0px">
+  <div fxLayout="row wrap">
+    <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column">
+      <div fxLayoutAlign="center">
+        <img style="margin-top:30px" src="/assets/img/logo/téléchargement (1).jpeg" />
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <h2 style="margin-top:100px" class="my-primary-text">4GI App</h2>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <img src="/assets/img/logo/téléchargement.jpeg" />
+      </div>
+
+     </div>
+
+    <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column" class="mat-app-background">
+      <div fxLayout="column" fxLayoutAlign="center" style="margin-top:30px">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <h3>Welcome to the SendSMS APP</h3>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center">
+          <h4>Please sign in below</h4>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center" style="margin-top:10px;margin-left:auto;margin-right:auto">
+          <main fxLayout="column" fxLayoutAlign="center" style="border:1px;border-radius:10px">
+            <form
+              action=""
+              id="form1"
+              [formGroup]="formdata"
+              (ngSubmit)="onClickLogin(formdata.value)"
+            >
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                type="text"
+                name="phoneNumber"
+                id="phoneNumber"
+                style="width:30%"
+                formControlName="phoneNumber"
+                matInput
+              />
+              <!-- <p id="incorrect" [hidden]="!formdata.valid">Incorrect phone number!</p> -->
+              <div
+                *ngIf="f['phoneNumber'].touched && f['phoneNumber'].invalid"
+                id="incorrect"
+              >
+                <div *ngIf="f['phoneNumber'].errors?.['required']">
+                  Mobile number is required
+                </div>
+                <div *ngIf="f['phoneNumber'].errors?.['pattern']">
+                  Invalid phone number
+                </div>
+              </div>
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                formControlName="password"
+              />
+              <!-- <p id="incorrect" [hidden]="!formdata.valid">Incorrect password!</p> -->
+              <div *ngIf="f['password'].touched && f['password'].invalid" id="incorrect">
+                <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+                <div *ngIf="f['password'].errors?.['minlength']">
+                  Password should have at least 8 characters
+                </div>
+              </div>
+              <input
+                type="submit"
+                value="Login"
+                class="button btn login"
+                id="login"
+                [disabled]="formdata.invalid"
+              />
+              <a
+                routerLink="/message-app/recoverpassword"
+                class="link-password"
+                (click)="forgotPassword()"
+                >Forgot password?</a
+              >
+            </form>
+            <form action="" id="form2">
+              <p class="there">----------or----------</p>
+              <input
+                type="button"
+                value="Continue with Facebook"
+                class="button btn facebook-btn"
+                id="facebook-btn"
+              />
+              <p class="there">
+                Don't have an account yet? <a routerLink="/">Sign in</a>
+              </p>
+            </form>
+          </main>
+        </div>
+
+      </div>
+
+          </div>
+  </div>
+</div>

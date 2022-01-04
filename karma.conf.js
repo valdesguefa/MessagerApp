@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/MessagerApp'),
+      dir: require('path').join(__dirname, './coverage/sms'),
       subdir: '.',
       reporters: [
         { type: 'html' },
