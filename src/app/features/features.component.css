@@ -2,8 +2,29 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   height: 100%;
 }
 
-.mat-sidenav {
+mat-sidenav {
   width: 220px;
+}
+
+mat-sidenav, mat-sidenav-content {
+  padding-top: 16px;
+
+}
+
+mat-toolbar {
+  background-color: skyblue;
+}
+
+mat-sidenav {
+  background-color: skyblue;
+}
+
+app-menu-list-item {
+  display: block;
+}
+
+mat-sidenav-content {
+  /* background-color: grey; */
 }
 
 button.menu-button {
